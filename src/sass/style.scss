@@ -702,6 +702,10 @@ body {
 		margin-top: -10px;
 		font-size: 1.6em;
 		margin-bottom: 80px;
+
+		i {
+			color: #bbb9b9;
+		}
 	}
 
 	&__box {
@@ -756,10 +760,10 @@ body {
 	.content-box {
 		position: relative;
 		#content {
-			padding: 10px;
+			padding: 20px;
 			max-width: 100%;
 			min-width: 100%;
-			min-height: 300px;
+			min-height: 150px;
 			border: 2px solid rgba($color: #000000, $alpha: 0.7);
 			border-radius: 25px;
 		}
@@ -777,6 +781,10 @@ body {
 	p {
 		font-size: 1.6em;
 		margin-bottom: 30px;
+
+		i {
+			margin-right: 10px;	
+		}
 	}
 
 	iframe {
