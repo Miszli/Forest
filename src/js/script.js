@@ -1,3 +1,4 @@
+
 const burgerBtn = document.querySelector('.burger-btn')
 const barOne = document.querySelector('.one')
 const barTwo = document.querySelector('.two')
@@ -7,11 +8,13 @@ const nav = document.querySelector('.nav-mobile')
 const navBtns = document.querySelectorAll('.nav-link')
 const yearP = document.querySelector('.year')
 const burgerBox = document.querySelector('.burger-box')
+
 const email = document.querySelector('#email')
 const nameInput = document.querySelector('#name')
-
+const contentInput = document.querySelector('#content')
 const errorEmail = document.querySelector('.error-email')
 const errorName = document.querySelector('.error-name')
+const errorContent = document.querySelector('.error-content')
 const submitBtn = document.querySelector('.contact__submit')
 const submitted = document.querySelector('.submit__p')
 
@@ -52,12 +55,20 @@ const checkMail = email => {
 }
 
 const checkName = name => {
-	const re = /[^a-zA-Z]/
+	const re = /[0-9,@,#,$,%,^,&,*,!,()]/
 
-	if (re.test(name.value)) {
+	if (re.test(name.value) || name.value === '') {
 		errorName.style.visibility = 'visible'
 	} else {
 		errorName.style.visibility = 'hidden'
+	}
+}
+
+const checkContent = content => {
+	if (content.value !== '') {
+		errorContent.style.visibility = 'hidden'
+	} else {
+		errorContent.style.visibility = 'visible'
 	}
 }
 
@@ -76,30 +87,46 @@ navBtns.forEach(el => {
 	})
 })
 
-submitBtn.addEventListener('click', e => {
-	e.preventDefault()
+if (document.body.classList.contains('contact-body')) {
+	submitBtn.addEventListener('click', e => {
+		checkMail(email)
+		checkName(nameInput)
+		checkContent(contentInput)
 
-	checkMail(email)
-	checkName(nameInput)
+		if (
+			errorName.style.visibility === 'hidden' &&
+			errorEmail.style.visibility === 'hidden' &&
+			errorContent.style.visibility === 'hidden'
+		) {
+			submitted.style.visibility = 'visible'
+			email.value = ''
+			nameInput.value = ''
+			contentInput.value = ''
+		}
+	})
+}
 
-	if (errorName.style.visibility === 'hidden' && errorEmail.style.visibility === 'hidden') {
-		submitted.style.visibility = 'visible'
+const menuItems = document.querySelectorAll('.nav__option')
+const header = document.querySelector('.header')
+const aboutUs = document.querySelector('.about-us')
+const offers = document.querySelector('.offers')
+const scrollSpySections = [header, aboutUs, offers]
+
+const handleScrollSpy = () => {
+	if (document.body.classList.contains('main-page')) {
+		const sections = []
+
+		scrollSpySections.forEach(section => {
+			if (window.scrollY <= section.offsetTop + section.offsetHeight-1) {
+				sections.push(section)
+
+				const activeSection = document.querySelector(`[href*="${sections[0].id}"]`)
+
+				menuItems.forEach(item => item.classList.remove('active'))
+				activeSection.classList.add('active')
+			}
+		})
 	}
+}
 
-	nameInput.value = ''
-	email.value = ''
-})
-
-const home = document.querySelector('.header')
-const aboutUs = document.querySelector('#about-us')
-const offers = document.querySelector('#offers')
-
-const homeNav = document.querySelector('.home-nav')
-const aboutUsNav = document.querySelector('.about-us-nav')
-const offersNav = document.querySelector('.offers-nav')
-
-const homeHeight = home.clientHeight
-const aboutUsHeight = aboutUs.clientHeight
-const offersHeight = offers.clientHeight
-
-
+window.addEventListener('scroll', handleScrollSpy)

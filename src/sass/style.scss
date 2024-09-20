@@ -39,7 +39,7 @@ body {
 .logo {
 	margin-left: 20px;
 	font-size: 2.4em;
-	color: black;
+	color: #fff;
 	text-decoration: none;
 
 	&:hover .fas {
@@ -61,13 +61,10 @@ body {
 	height: 100px;
 	width: 100%;
 	left: 50%;
+	padding: 0 50px;
 	transform: translateX(-50%);
 	background-color: rgba($color: rgb(0, 0, 0), $alpha: 0.4);
-	z-index: 987435;
-
-	a {
-		color: #fff;
-	}
+	z-index: 1000;
 
 	&__options {
 		display: flex;
@@ -77,53 +74,50 @@ body {
 	}
 
 	&__option {
-		a {
-			position: relative;
-			padding: 10px 20px;
-			margin: 0 10px;
-			text-decoration: none;
-			color: #fff;
-			transition: color 0.3s;
+		position: relative;
+		padding: 10px 20px;
+		margin: 0 10px;
+		text-decoration: none;
+		color: #fff;
+		transition: color 0.3s;
 
-			&::before {
-				content: '';
-				position: absolute;
-				bottom: 0;
-				left: 50%;
-				transform: translateX(-50%);
-				height: 3px;
-				width: 0;
-				background-color: rgb(14, 184, 8);
-				transition: width 0.3s;
-			}
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			height: 3px;
+			width: 0;
+			background-color: rgb(14, 184, 8);
+			transition: width 0.3s;
+		}
 
-			&:hover::before {
-				width: 75%;
-			}
+		&:hover::before {
+			width: 75%;
+		}
 
-			&:hover {
-				color: rgb(12, 133, 8);
-			}
+		&:hover {
+			color: rgb(12, 133, 8);
 		}
 	}
 }
 
 .active {
-	a {
-		&::before {
-			width: 75%;
-		}
+	color: rgb(12, 133, 8);
 
-		color: rgb(12, 133, 8);
+	&::before {
+		width: 75%;
 	}
 }
 
 .burger-box {
-	position: absolute;
+	position: fixed;
 	top: 5px;
-	right: 5px;
+	left: 20px;
 	display: flex;
 	justify-content: flex-end;
+	z-index: 5000;
 }
 
 .burger-btn {
@@ -140,7 +134,7 @@ body {
 	position: absolute;
 	width: 100%;
 	height: 3px;
-	background-color: rgb(2, 146, 9);
+	background-color: #17d800;
 }
 
 .two {
@@ -254,21 +248,23 @@ body {
 }
 
 .nav-mobile {
+	text-align: center;
 	position: fixed;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	width: 100%;
+	width: 80%;
 	height: 100%;
 	transform: translateX(150%);
-	background: linear-gradient(to right, #52c234, #0e3501);
+	background-color: #FAF9F6;
 	transition: transform 0.8s ease;
 	z-index: 50;
+	overflow-y: hidden;
 }
 
 .handleNav {
-	transform: translateX(0%);
+	transform: translateX(30%);
 }
 
 .nav-mobile li {
@@ -281,7 +277,7 @@ body {
 	position: relative;
 	padding: 20px;
 	text-decoration: none;
-	color: #ddd;
+	color: #000;
 }
 
 .nav-mobile li a::before {
@@ -293,7 +289,7 @@ body {
 	width: 3px;
 	transform: scaleY(0);
 	transition: transform 0.1s;
-	background-color: #ddd;
+	background-color: #000;
 }
 
 .nav-mobile li a:hover::before {
@@ -307,7 +303,7 @@ body {
 	align-items: center;
 	height: 500px;
 	width: 100%;
-	background-image: url('../img/title-bg-small.jpg');
+	background-image: url('../img/title-bg-small.webp');
 	background-size: cover;
 	background-position: center;
 	z-index: -20;
@@ -357,7 +353,7 @@ body {
 .img {
 	position: relative;
 	height: 250px;
-	background-image: url('../img/whole-family-small.jpg');
+	background-image: url('../img/whole-family-small.webp');
 	background-size: cover;
 	background-position: center;
 	z-index: -20;
@@ -482,13 +478,15 @@ body {
 		bottom: 60px;
 		left: 50%;
 		transform: translateX(-50%);
-		padding: 20px 30px;
+		padding: 15px 40px;
 		border-radius: 25px;
 		border: none;
+		font-size: 1.5em;
+		text-decoration: none;
+		color: #000;
 		box-shadow: 1px 1px 10px rgba($color: black, $alpha: 0.6);
-		background-color: #fff;
-		transition: background-color 0.3s;
 		cursor: pointer;
+		transition: color .3s;
 
 		&:hover {
 			color: rgb(76, 194, 92);
@@ -496,16 +494,7 @@ body {
 
 		i {
 			margin-right: 10px;
-			color: #000;
 			transition: color 0.3s;
-		}
-
-		a {
-			color: #000;
-			text-decoration: none;
-			text-transform: uppercase;
-			transition: color 0.3s;
-			padding: 20px 30px;
 		}
 
 		&:hover i {
@@ -596,16 +585,22 @@ body {
 	text-align: center;
 }
 
-.subpage-burger {
-	background-color: #000;
-}
+
 
 .contact {
+	max-width: 500px;
 	width: 100%;
 	padding: 50px;
 	padding-top: 75px;
 	margin: 0 auto;
 	text-align: center;
+
+	label {
+		position: absolute;
+		font-size: 1.6em;
+		top: -25px;
+		left: 10px;
+	}
 
 	&__p {
 		margin-top: -10px;
@@ -617,30 +612,22 @@ body {
 		margin: 50px auto;
 
 		input {
-			margin: 0 20px;
-			margin-top: 30px;
+			margin-bottom: 5px;
 			padding: 10px 20px;
 			font-size: 1.8em;
 			border-radius: 25px;
-		}
-
-		label {
-			position: absolute;
-			font-size: 1.6em;
-			top: -45px;
-			left: 20px;
 		}
 	}
 
 	.box {
 		position: relative;
-		display: inline;
+		margin-bottom: 50px;
 	}
 
 	&__submit {
 		padding: 15px 75px;
 		border-radius: 25px;
-		min-width: 50%;
+		width: 100%;
 		max-width: 600px;
 		font-size: 1.8em;
 		text-transform: uppercase;
@@ -663,10 +650,27 @@ body {
 	}
 
 	.error {
-		margin: 10px 0;
 		font-size: 1.4em;
 		color: rgb(255, 0, 0);
 		visibility: hidden;
+	}
+
+	.content-box {
+		position: relative;
+		#content {
+			padding: 10px;
+			max-width: 100%;
+			min-width: 100%;
+			min-height: 300px;
+			border: 2px solid #868686;
+			border-top: 2px solid black;
+			border-left: 2px solid black;
+			border-radius: 25px;
+		}
+
+		.error-content {
+			margin: 5px 0 20px;
+		}
 	}
 }
 
@@ -710,7 +714,7 @@ body {
 	}
 
 	.header {
-		background-image: url('../img/title-bg-big.jpg');
+		background-image: url('../img/title-bg-big.webp');
 	}
 
 	.section-title {
@@ -750,7 +754,7 @@ body {
 	}
 
 	.img {
-		background-image: url('../img/whole-family-big.jpg');
+		background-image: url('../img/whole-family-big.webp');
 		font-size: 1.6em;
 	}
 
@@ -789,10 +793,15 @@ body {
 			display: flex;
 			justify-content: space-between;
 			width: 600px;
+		}
 
-			label {
-				top: 5px;
-			}
+		.content-box {
+			width: 600px;
+			margin: 0 auto;
+		}
+
+		.box {
+			margin-bottom: 0;
 		}
 	}
 }

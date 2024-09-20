@@ -12,23 +12,23 @@
     <script src="https://kit.fontawesome.com/43c0d328eb.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="main-page">
 
     <div class="wrapper">
         <nav class="nav">
             <a href="#" class="logo"><i class="fas fa-tree"></i>Forest</a>
             <ul class="nav__options">
-                <li class="nav__option">
-                    <a href="index.html">Home</a>
+                <li>
+                    <a href="#home" class="nav__option">Home</a>
                 </li>
-                <li class="nav__option">
-                    <a href="index.html#about-us">O nas</a>
+                <li>
+                    <a href="index.html#about-us" class="nav__option">O nas</a>
                 </li>
-                <li class="nav__option">
-                    <a href="#offers">Oferta</a>
+                <li>
+                    <a href="#offers" class="nav__option">Oferta</a>
                 </li>
-                <li class="nav__option">
-                    <a href="contact.html">Kontakt</a>
+                <li>
+                    <a href="contact.html" class="nav__option">Kontakt</a>
                 </li>
             </ul>
         </nav>
@@ -46,7 +46,7 @@
     <div class="hide">
         <nav class="nav-mobile">
             <ul>
-                <li><a class="nav-link" href="#">Home</a></li>
+                <li><a class="nav-link" href="#home">Home</a></li>
                 <li><a class="nav-link" href="#about-us">O nas</a></li>
                 <li><a class="nav-link" href="#offers">Oferty</a></li>
                 <li><a class="nav-link" href="contact.html">Kontakt</a></li>
@@ -54,7 +54,7 @@
         </nav>
     </div>
 
-    <header class="header">
+    <header class="header" id="home">
         <div class="hero-shadow"></div>
         <div class="wrapper">
             <div class="header__text">
@@ -67,7 +67,7 @@
     <section class="about-us" id="about-us">
         <h2 class="section-title">o nas</h2>
         <div class="about-us__content">
-            <img src="./dist/img/about-us.jpg" alt="Mała wysepka z drzewkiem na jeziorze w lesie" class="about-us__img">
+            <img src="./dist/img/about-us.webp" alt="Mała wysepka z drzewkiem na jeziorze w lesie" class="about-us__img">
             <div class="about-us__text">
                 <h3 class="about-us__text--subtitle">Niezapomniane przygody</h3>
                 <p class="about-us__text--p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
@@ -134,11 +134,9 @@
                 <button class="offers__card--button">Wybierz</button>
             </div>
         </div>
-        <button class="offers__see-more">
-            <a href="offers.html" class="see-more-link">
-                <i class="fas fa-arrow-right"></i>Zobacz wszystkie
-            </a>
-        </button>
+        <a href="offers.html" class="offers__see-more">
+            <i class="fas fa-arrow-right"></i>Zobacz wszystkie
+        </a>
 
     </section>
 
