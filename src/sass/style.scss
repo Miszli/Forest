@@ -584,6 +584,8 @@ body {
 		text-align: center;
 	}
 
+	
+
 	&__p {
 		text-align: center;
 		font-size: 1.6em;
@@ -593,14 +595,14 @@ body {
 		width: 80%;
 		height: 2px;
 		background-color: rgba($color: #000, $alpha: 0.65);
+		margin: 50px auto 0;
 
-		margin: 70px auto 20px;
 	}
 
 	.offer {
 		display: flex;
 		flex-direction: column;
-		margin: 50px 0;
+		margin: 30px 0;
 
 		&__img {
 			width: 80%;
@@ -677,6 +679,10 @@ body {
 				}
 			}
 		}
+	}
+
+	.offer-desktop {
+		display: none;
 	}
 }
 
@@ -917,10 +923,10 @@ body {
 
 		.line {
 			position: absolute;
-			margin-bottom: 50px;
 			top: 100%;
 			left: 50%;
 			width: 120%;
+			margin-top: 60px;
 			transform: translateX(-50%);
 		}
 
@@ -931,11 +937,17 @@ body {
 			flex-direction: row;
 			margin-bottom: 100px;
 
+			&-mobile {
+				display: none;
+			}
+
 			&__img {
 				height: 50%;
 			}
 
 			&__text {
+				padding: 20px;
+				padding-left: 0;
 				&--title {
 					font-size: 3.4em;
 				}
@@ -964,6 +976,10 @@ body {
 				}
 			}
 		}
+	}
+
+	.offer-mobile {
+		display: none;
 	}
 }
 
